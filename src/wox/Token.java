@@ -35,6 +35,10 @@ public class Token {
         return this.type.isEOF();
     }
 
+    public String lnColString() {
+        return "line " + this.line + ", column " + this.column;
+    }
+
     public String toString() {
         String buf = new String("Token(");
         buf += type;
