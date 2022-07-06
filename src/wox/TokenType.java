@@ -92,18 +92,6 @@ public enum TokenType {
         }
     }
 
-    public boolean isTrue() {
-        return this == TRUE;
-    }
-
-    public boolean isFalse() {
-        return this == FALSE;
-    }
-
-    public boolean isNil() {
-        return this == NIL;
-    }
-
     public boolean isEOF() {
         return this == EOF;
     }
@@ -157,6 +145,72 @@ public enum TokenType {
                 AND, OR,
                 PRINT,
                 RETURN };
+    }
+
+    // used in error reporting
+    public String stringify() {
+        switch (this) {
+
+            case PAREN_L:
+                return "(";
+            case PAREN_R:
+                return ")";
+            case BRACK_L:
+                return "[";
+            case BRACK_R:
+                return "]";
+            case CURLY_L:
+                return "{";
+            case CURLY_R:
+                return "}";
+            case COMMA:
+                return ",";
+            case DOT:
+                return ".";
+            case MINUS:
+                return "-";
+            case PLUS:
+                return "+";
+            case PLUS_PLUS:
+                return "++";
+            case SEMICOLON:
+                return ";";
+            case SLASH:
+                return "/";
+            case STAR:
+                return "*";
+            case BANG:
+                return "!";
+            case BANG_EQUAL:
+                return "!=";
+            case EQUAL:
+                return "=";
+            case EQUAL_EQUAL:
+                return "==";
+            case GREATER:
+                return ">";
+            case GREATER_EQUAL:
+                return ">=";
+            case LESS:
+                return "<";
+            case LESS_EQUAL:
+                return "<=";
+            case UNERLINE:
+                return "_";
+
+            // return null since these vary? and this method should ONLY be used
+            // when getting strings for FIXED TOKEN TYPES!
+            case IDENT:
+            case STRING:
+            case NUMBER:
+                return null;
+
+            case EOF:
+                return "\0";
+            // only keywords left
+            default:
+                return this.toString().toLowerCase();
+        }
     }
 
     // so that we don't have to manually insert every keyword
