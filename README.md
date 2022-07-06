@@ -1,9 +1,10 @@
 # Wox
 
-Ahoy! This here is a simple [Lox](http://www.craftinginterpreters.com/)
-implementation in Java, with a subtle stylistic influence from my (main)
-Rust-based compiler project [_Wysk_](https://github.com/lctr/wysk) as well as
-absolutely _zero_ third-party dependencies.
+Ahoy! This here is a simple Java implementation for Bob Nystrom's
+[Lox](http://www.craftinginterpreters.com/) language, with a subtle stylistic
+influence from my (main) Rust-based compiler project
+[_Wysk_](https://github.com/lctr/wysk) as well as absolutely _zero_ third-party
+dependencies.
 
 The main goal of this project is to review Java. Thus, simplifications and/or
 particular optimizations (and hand-offs to other low-level languages) are
