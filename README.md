@@ -25,6 +25,8 @@ Wox is a but more expression-based than common Lox implementations.
 - Conditionals are expressions and do not require surrounding parentheses around
   the predicate, but do require `then` and `else` keywords (and accompanying
   subexpressions) to be included
+- Functional-style scoped `let` expressions -- distinct from `var` declarations
+  -- have been added
 - Rust-like `loop` expressions are implemented as statements
 - _Wox_ introduces `do`-expressions, which are effectively block-statements that
   return the last expression
