@@ -8,7 +8,7 @@ public enum TokenType {
     PAREN_L, PAREN_R,
     BRACK_L, BRACK_R,
     CURLY_L, CURLY_R,
-    COMMA, DOT, MINUS, PLUS, SEMICOLON, SLASH, STAR,
+    COMMA, DOT, MINUS, PLUS, PLUS_PLUS, SEMICOLON, SLASH, STAR,
 
     // One or two character tokens.
     BANG, BANG_EQUAL,
@@ -52,6 +52,7 @@ public enum TokenType {
             case LESS_EQUAL:
             case MINUS:
             case PLUS:
+            case PLUS_PLUS:
             case STAR:
             case SLASH:
                 return true;
