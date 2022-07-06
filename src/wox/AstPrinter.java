@@ -1,4 +1,4 @@
-package com.lctr.wox;
+package wox;
 
 import java.util.List;
 

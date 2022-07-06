@@ -1,4 +1,4 @@
-package com.lctr.tools;
+package tools;
 
 import java.util.ArrayList;
 import java.util.HashMap;

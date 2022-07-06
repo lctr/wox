@@ -1,26 +1,42 @@
-package com.lctr.wox;
+package wox;
 
 import java.util.List;
 
 abstract class Expr {
   interface Visitor<R> {
     R visitAssignExpr(Assign expr);
+
     R visitBinaryExpr(Binary expr);
+
     R visitCallExpr(Call expr);
+
     R visitDoExpr(Do expr);
+
     R visitGetExpr(Get expr);
+
     R visitGroupingExpr(Grouping expr);
+
     R visitIfExpr(If expr);
+
     R visitLetExpr(Let expr);
+
     R visitLiteralExpr(Literal expr);
+
     R visitSetExpr(Set expr);
+
     R visitSuperExpr(Super expr);
+
     R visitThisExpr(This expr);
+
     R visitTupleExpr(Tuple expr);
+
     R visitUnaryExpr(Unary expr);
+
     R visitVariableExpr(Variable expr);
+
     R visitVectorExpr(Vector expr);
   }
+
   static class Assign extends Expr {
     Assign(Token name, Expr value) {
       this.name = name;
@@ -254,7 +270,6 @@ abstract class Expr {
 
     final List<Expr> elements;
   }
-
 
   abstract <R> R accept(Visitor<R> visitor);
 }

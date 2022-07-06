@@ -1,4 +1,4 @@
-package com.lctr.wox;
+package wox;
 
 public class Interpreter implements Expr.Visitor<Object> {
 

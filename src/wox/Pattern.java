@@ -1,4 +1,4 @@
-package com.lctr.wox;
+package wox;
 
 abstract class Pattern {
     interface Visitor<R> {

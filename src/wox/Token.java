@@ -1,4 +1,4 @@
-package com.lctr.wox;
+package wox;
 
 class Keyword {
     final String text;

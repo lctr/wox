@@ -1,4 +1,4 @@
-package com.lctr.wox;
+package wox;
 
 import java.io.BufferedReader;
 import java.io.IOException;
