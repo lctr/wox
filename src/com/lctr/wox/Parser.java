@@ -133,7 +133,13 @@ public class Parser {
     }
 
     private Stmt varDecl() {
-        return null;
+        Token name = eat(TokenType.IDENT, "Expected variable identifier, but found `" + peek().text + "` instead");
+        Expr initializer = null;
+
+        if (match(TokenType.EQUAL))
+            initializer = expression();
+        eat(TokenType.SEMICOLON);
+        return new Stmt.Var(name, initializer);
     }
 
     private Stmt.Function function(String kind) {
@@ -430,18 +436,8 @@ public class Parser {
             if (previous().type == TokenType.SEMICOLON)
                 return;
 
-            switch (peek().type) {
-                case CLASS:
-                case FN:
-                case LET:
-                case VAR:
-                case FOR:
-                case IF:
-                case WHILE:
-                case PRINT:
-                case RETURN:
-                    return;
-            }
+            if (peek().type.beginsDecl())
+                return;
 
             advance();
         }
