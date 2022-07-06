@@ -9,7 +9,9 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class Wox {
+    private static final Interpreter interpreter = new Interpreter();
     static boolean hadError = false;
+    static boolean hadRuntimeError = false;
 
     public static void main(String[] args) throws IOException {
         if (args.length > 1) {
@@ -30,6 +32,8 @@ public class Wox {
         // exit using relevant error code from UNIX "sysexits.h" header
         if (hadError)
             System.exit(65);
+        if (hadRuntimeError)
+            System.exit(70);
     }
 
     private static void runPrompt() throws IOException {
@@ -62,9 +66,7 @@ public class Wox {
         if (hadError)
             return;
 
-        for (Stmt stmt : stmts) {
-            System.out.println(new AstPrinter().print(stmt));
-        }
+        interpreter.interpret(stmts);
     }
 
     static void error(int line, String msg) {
@@ -92,9 +94,17 @@ public class Wox {
     }
 
     private static void report(int line, int column, String where, String msg) {
-        System.err.println(
-                "[line " + line + ", column " + column + "] Error" + where + ": " + msg);
+        System.err.println("[line " + line + ", column " + column + "] Error"
+                + where + ": " + msg);
         hadError = true;
+    }
+
+    static void runtimeException(Exception error) {
+        System.err.println(error.getMessage()
+                + "\n["
+                + error.token.lnColString()
+                + "]");
+        hadRuntimeError = true;
     }
 
 }
